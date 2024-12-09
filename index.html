@@ -4,62 +4,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QR Code Scanner with Redirect</title>
-    
+    <title>QR Code Scanner</title>
+
     <style>
         body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #333;
-            color: white;
+            min-height: 100vh;
             text-align: center;
         }
+
         .container {
-            width: 100%;
+            width: 90%;
             max-width: 400px;
-            padding: 20px;
             background: white;
-            color: black;
-            border-radius: 10px;
-            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+            color: #333;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
         }
+
         h1 {
-            margin-bottom: 20px;
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #1e3c72;
         }
+
+        p {
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
         #qr-reader {
             width: 100%;
-            margin: 10px auto;
+            margin: 20px 0;
         }
-        p {
-            margin: 10px 0;
+
+        #message {
+            font-size: 14px;
+            color: #1e3c72;
+            margin-top: 10px;
         }
+
         button {
             margin-top: 20px;
-            padding: 10px 20px;
+            padding: 12px 20px;
             border: none;
-            border-radius: 5px;
+            border-radius: 8px;
             background: #007BFF;
             color: white;
             font-size: 16px;
             cursor: pointer;
+            transition: background 0.3s;
         }
+
         button:hover {
             background: #0056b3;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 20px;
+            }
+
+            p {
+                font-size: 12px;
+            }
+
+            button {
+                font-size: 14px;
+                padding: 10px 16px;
+            }
         }
     </style>
 </head>
 
 <body>
     <div class="container">
+        <h1>Scan QR Code</h1>
         <div id="qr-reader"></div>
-        <h1>Scan QR</h1>
-        <p>Allow camera access to scan QR codes. If a valid URL is detected, you'll be redirected.</p>
+        <p>Allow camera access to scan QR codes. If a valid URL is detected, you'll be redirected automatically.</p>
         <p id="message"></p>
     </div>
+
     <script src="https://unpkg.com/html5-qrcode"></script>
     <script>
         async function checkCameraPermissions() {
