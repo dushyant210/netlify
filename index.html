@@ -4,102 +4,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QR Code Scanner / Reader</title>
+    <title>QR Code Redirect Scanner</title>
     <style>
         body {
             display: flex;
             justify-content: center;
-            margin: 0;
-            padding: 0;
+            align-items: center;
             height: 100vh;
-            box-sizing: border-box;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: rgb(0, 102, 204);
+            color: white;
             text-align: center;
-            background: rgb(128 0 0 / 66%);
         }
         .container {
             width: 100%;
-            max-width: 500px;
-            margin: 5px;
+            max-width: 400px;
+            padding: 20px;
+            background: white;
+            color: black;
+            border-radius: 10px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
         }
-        .container h1 {
-            color: #ffffff;
+        h1 {
+            margin-bottom: 20px;
         }
-        .section {
-            background-color: #ffffff;
-            padding: 50px 30px;
-            border: 1.5px solid #b2b2b2;
-            border-radius: 0.25em;
-            box-shadow: 0 20px 25px rgba(0, 0, 0, 0.25);
-        }
-        #my-qr-reader {
-            padding: 20px !important;
-            border: 1.5px solid #b2b2b2 !important;
-            border-radius: 8px;
+        #qr-reader {
+            width: 100%;
+            margin: 10px auto;
         }
         button {
+            margin-top: 20px;
             padding: 10px 20px;
-            border: 1px solid #b2b2b2;
-            outline: none;
-            border-radius: 0.25em;
+            border: none;
+            border-radius: 5px;
+            background: #007BFF;
             color: white;
-            font-size: 15px;
+            font-size: 16px;
             cursor: pointer;
-            margin-top: 15px;
-            margin-bottom: 10px;
-            background-color: #008000ad;
-            transition: 0.3s background-color;
         }
         button:hover {
-            background-color: #008000;
-        }
-        #html5-qrcode-anchor-scan-type-change {
-            text-decoration: none !important;
-            color: #1d9bf0;
-        }
-        video {
-            width: 100% !important;
-            border: 1px solid #b2b2b2 !important;
-            border-radius: 0.25em;
+            background: #0056b3;
         }
     </style>
 </head>
 
 <body>
     <div class="container">
-        <h1>Scan QR Codes</h1>
-        <div class="section">
-            <div id="my-qr-reader"></div>
-        </div>
+        <h1>QR Code Scanner</h1>
+        <p>Scan a QR code, and you'll be redirected to the linked website.</p>
+        <div id="qr-reader"></div>
+        <p id="message"></p>
     </div>
     <script src="https://unpkg.com/html5-qrcode"></script>
     <script>
-        function domReady(fn) {
-            if (
-                document.readyState === "complete" ||
-                document.readyState === "interactive"
-            ) {
-                setTimeout(fn, 1);
-            } else {
-                document.addEventListener("DOMContentLoaded", fn);
+        function isValidUrl(string) {
+            try {
+                new URL(string);
+                return true;
+            } catch (_) {
+                return false;
             }
         }
 
-        domReady(function () {
-            // Handle the success of scanning a QR code
-            function onScanSuccess(decodedText, decodedResult) {
-                alert("Your QR Code is: " + decodedText);
-                console.log("Decoded Result:", decodedResult);
+        function onScanSuccess(decodedText) {
+            const messageElement = document.getElementById("message");
+
+            if (isValidUrl(decodedText)) {
+                messageElement.textContent = "Redirecting to: " + decodedText;
+                setTimeout(() => {
+                    window.location.href = decodedText;
+                }, 2000); // Redirect after 2 seconds
+            } else {
+                messageElement.textContent = "Invalid QR code content: " + decodedText;
             }
+        }
 
-            const html5QrCodeScanner = new Html5QrcodeScanner(
-                "my-qr-reader",
-                {
-                    fps: 10,  // Set the frame per second for scanning
-                    qrbox: 250 // Set the scanning box dimensions
-                }
-            );
+        function onScanError(error) {
+            console.error(`Error during scan: ${error}`);
+        }
 
-            html5QrCodeScanner.render(onScanSuccess);
+        const qrReader = new Html5Qrcode("qr-reader");
+
+        qrReader.start(
+            { facingMode: "environment" }, // Use the rear camera
+            {
+                fps: 10,
+                qrbox: 250
+            },
+            onScanSuccess,
+            onScanError
+        ).catch(err => {
+            console.error("Unable to start QR scanner:", err);
         });
     </script>
 </body>
