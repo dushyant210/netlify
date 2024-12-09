@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QR Code Scanner</title>
+    <title>QR Code Scanner with Redirect</title>
     <style>
         body {
             display: flex;
@@ -13,70 +13,111 @@
             height: 100vh;
             margin: 0;
             font-family: Arial, sans-serif;
-            background-color: #282c34;
-            color: #fff;
+            background: #333;
+            color: white;
+            text-align: center;
         }
-        .scanner {
+        .container {
             width: 100%;
             max-width: 400px;
             padding: 20px;
-            background-color: #fff;
-            color: #000;
+            background: white;
+            color: black;
             border-radius: 10px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
         }
-        #reader {
+        h1 {
+            margin-bottom: 20px;
+        }
+        #qr-reader {
             width: 100%;
-            margin: 20px 0;
+            margin: 10px auto;
         }
-        #result {
+        p {
+            margin: 10px 0;
+        }
+        button {
             margin-top: 20px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background: #007BFF;
+            color: white;
             font-size: 16px;
-            word-break: break-word;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #0056b3;
         }
     </style>
 </head>
 
 <body>
-    <div class="scanner">
+    <div class="container">
         <h1>QR Code Scanner</h1>
-        <p>Point your camera at a QR code.</p>
-        <div id="reader"></div>
-        <div id="result"></div>
+        <p>Allow camera access to scan QR codes. If a valid URL is detected, you'll be redirected.</p>
+        <div id="qr-reader"></div>
+        <p id="message"></p>
     </div>
-
-    <script src="https://unpkg.com/html5-qrcode/minified/html5-qrcode.min.js"></script>
+    <script src="https://unpkg.com/html5-qrcode"></script>
     <script>
-        async function startScanner() {
+        async function checkCameraPermissions() {
             try {
-                // Request camera access
-                await navigator.mediaDevices.getUserMedia({ video: true });
+                const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+                stream.getTracks().forEach(track => track.stop());
+                return true;
             } catch (error) {
-                alert("Camera access denied or unavailable. Please check your browser settings.");
-                return;
+                alert("Camera access denied or unavailable. Please enable camera permissions in your browser settings.");
+                return false;
             }
-
-            const qrReader = new Html5Qrcode("reader");
-
-            qrReader.start(
-                { facingMode: "environment" }, // Use the rear-facing camera
-                { fps: 10, qrbox: 250 },
-                (decodedText) => {
-                    document.getElementById("result").innerText = `QR Code: ${decodedText}`;
-                    // Redirect if the decoded text is a URL
-                    if (decodedText.startsWith("http://") || decodedText.startsWith("https://")) {
-                        setTimeout(() => window.location.href = decodedText, 1000);
-                    }
-                },
-                (error) => {
-                    console.warn(`QR Code scanning failed: ${error}`);
-                }
-            ).catch(err => {
-                console.error("Error starting QR scanner:", err);
-            });
         }
 
-        document.addEventListener("DOMContentLoaded", startScanner);
+        function isValidUrl(string) {
+            try {
+                new URL(string);
+                return true;
+            } catch (_) {
+                return false;
+            }
+        }
+
+        function onScanSuccess(decodedText) {
+            const messageElement = document.getElementById("message");
+
+            if (isValidUrl(decodedText)) {
+                messageElement.textContent = "Redirecting to: " + decodedText;
+                setTimeout(() => {
+                    window.location.href = decodedText;
+                }, 2000); // Redirect after 2 seconds
+            } else {
+                messageElement.textContent = "Invalid QR code content: " + decodedText;
+            }
+        }
+
+        function onScanError(error) {
+            console.error(`Error during scan: ${error}`);
+        }
+
+        async function initQrScanner() {
+            const hasPermission = await checkCameraPermissions();
+            if (hasPermission) {
+                const qrReader = new Html5Qrcode("qr-reader");
+                qrReader.start(
+                    { facingMode: "environment" }, // Use rear camera
+                    {
+                        fps: 10,
+                        qrbox: 250
+                    },
+                    onScanSuccess,
+                    onScanError
+                ).catch(err => {
+                    console.error("Unable to start QR scanner:", err);
+                });
+            }
+        }
+
+        // Initialize QR scanner on page load
+        initQrScanner();
     </script>
 </body>
 
