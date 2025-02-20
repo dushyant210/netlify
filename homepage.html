@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jewelshub</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style1.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container-fluid">
+            <div class="d-flex align-items-center">
+                <span class="navbar-brand mb-0">JEWELSHUB ●</span>
+            </div>
+            <div class="auth-buttons">
+                <button class="btn btn-signup">Sign up</button>
+                <button class="btn btn-login">Log in</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-container">
+        <h1 class="chat-heading">What can I help with?</h1>
+        <div class="chat-input-container d-flex flex-column p-1">
+            <div>
+                <textarea class="chat-input" rows="1" placeholder="Message Jewelshub"></textarea>
+            </div>
+
+            <div class="input-actions">
+                <button class="action-button">
+                    <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"
+                        stroke-linejoin="round" height="1em" width="1em">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="17 8 12 3 7 8"></polyline>
+                        <line x1="12" y1="3" x2="12" y2="15"></line>
+                    </svg>
+                    Attach
+                </button>
+                <button class="action-button">
+                    <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"
+                        stroke-linejoin="round" height="1em" width="1em">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                    Search
+                </button>
+                <button class="action-button">
+                    <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"
+                        stroke-linejoin="round" height="1em" width="1em">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="16" x2="12" y2="12"></line>
+                        <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                    </svg>
+                    Reason
+                </button>
+                <button class="voice-button btn btn-dark">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M9.5 4C8.67157 4 8 4.67157 8 5.5V18.5C8 19.3284 8.67157 20 9.5 20C10.3284 20 11 19.3284 11 18.5V5.5C11 4.67157 10.3284 4 9.5 4Z"
+                            fill="currentColor"></path>
+                        <path
+                            d="M13 8.5C13 7.67157 13.6716 7 14.5 7C15.3284 7 16 7.67157 16 8.5V15.5C16 16.3284 15.3284 17 14.5 17C13.6716 17 13 16.3284 13 15.5V8.5Z"
+                            fill="currentColor"></path>
+                        <path
+                            d="M4.5 9C3.67157 9 3 9.67157 3 10.5V13.5C3 14.3284 3.67157 15 4.5 15C5.32843 15 6 14.3284 6 13.5V10.5C6 9.67157 5.32843 9 4.5 9Z"
+                            fill="currentColor"></path>
+                        <path
+                            d="M19.5 9C18.6716 9 18 9.67157 18 10.5V13.5C18 14.3284 18.6716 15 19.5 15C20.3284 15 21 14.3284 21 13.5V10.5C21 9.67157 20.3284 9 19.5 9Z"
+                            fill="currentColor"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div class="quick-actions">
+            <button class="quick-action">
+                <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"
+                    stroke-linejoin="round" height="1em" width="1em" class="icon-orange">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                    <polyline points="10 9 9 9 8 9"></polyline>
+                </svg>
+                Summarize text
+            </button>
+            <button class="quick-action">
+                <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"
+                    stroke-linejoin="round" height="1em" width="1em" class="icon-blue">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                </svg>
+                Get advice
+            </button>
+            <button class="quick-action">
+                <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"
+                    stroke-linejoin="round" height="1em" width="1em" class="icon-purple">
+                    <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
+                    <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
+                    <path d="M2 2l7.586 7.586"></path>
+                    <circle cx="11" cy="11" r="2"></circle>
+                </svg>
+                Help me write
+            </button>
+            <button class="quick-action">
+                <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"
+                    stroke-linejoin="round" height="1em" width="1em" class="icon-gray">
+                    <polyline points="16 18 22 12 16 6"></polyline>
+                    <polyline points="8 6 2 12 8 18"></polyline>
+                </svg>
+                Code
+            </button>
+            <button class="quick-action">More</button>
+        </div>
+    </main>
+
+
+    <div class="container d-flex justify-content-center">
+        <div class="row justify-content-center mobile85">
+
+            <div class="col-sm-12 head-margin">
+                <div class="text-center">
+                    <h2>Shop By Category</h2>
+                    <p>Brilliant design and unparalleled craftsmanship.</p>
+                </div>
+            </div>
+
+
+            <div class="col-sm-2 col-4 prod-margin">
+                <div class="card-prod h-100">
+                    <a href="https://www.reliancejewels.com/category:131/">
+                        <img class="card-img-cat" src="https://image.reliancejewels.com/Jewels/media/dsimg/1.jpg"
+                            alt="..." loading="lazy">
+                        <div class="card-body">
+                            <h3>Earring</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-sm-2 col-4 prod-margin">
+                <div class="card-prod h-100">
+                    <a href="https://www.reliancejewels.com/category:136/">
+                        <img class="card-img-cat" src="https://image.reliancejewels.com/Jewels/media/dsimg/2.jpg"
+                            alt="..." loading="lazy">
+                        <div class="card-body">
+                            <h3>Ring</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-sm-2 col-4 prod-margin">
+                <div class="card-prod h-100">
+                    <a
+                        href="https://www.reliancejewels.com/pendant-26-pendant-set/category:158/filter_Type:%28%22Pendant%22%29/sort:New+Arrivals/">
+                        <img class="card-img-cat" src="https://image.reliancejewels.com/Jewels/media/dsimg/3.jpg"
+                            alt="..." loading="lazy">
+                        <div class="card-body">
+                            <h3>Pendant</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-sm-2 col-4 prod-margin">
+                <div class="card-prod h-100">
+                    <a href="https://www.reliancejewels.com/category:181/">
+                        <img class="card-img-cat" src="https://image.reliancejewels.com/Jewels/media/dsimg/4.jpg"
+                            alt="..." loading="lazy">
+                        <div class="card-body">
+                            <h3>Necklace</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-sm-2 col-4 prod-margin">
+                <div class="card-prod h-100">
+                    <a href="https://www.reliancejewels.com/category:164/">
+                        <img class="card-img-cat" src="https://image.reliancejewels.com/Jewels/media/dsimg/5.jpg"
+                            alt="..." loading="lazy">
+                        <div class="card-body">
+                            <h3>Bangle</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-sm-2 col-4 prod-margin">
+                <div class="card-prod h-100">
+                    <a
+                        href="https://www.reliancejewels.com/bangles-26-bracelet/category:164/filter_Type:%28%22Bracelet%22%29/sort:New+Arrivals/">
+                        <img class="card-img-cat" src="https://image.reliancejewels.com/Jewels/media/dsimg/6.jpg"
+                            alt="..." loading="lazy">
+                        <div class="card-body">
+                            <h3>Bracelet</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-sm-2 col-4 prod-margin">
+                <div class="card-prod h-100">
+                    <a href="https://www.reliancejewels.com/category:146/">
+                        <img class="card-img-cat" src="https://image.reliancejewels.com/Jewels/media/dsimg/7.jpg"
+                            alt="..." loading="lazy">
+                        <div class="card-body">
+                            <h3>Chain</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-sm-2 col-4 prod-margin">
+                <div class="card-prod h-100">
+                    <a
+                        href="https://www.reliancejewels.com/pendant-26-pendant-set/category:158/filter_Type:%28%22Pendant+Set%22%29/sort:New+Arrivals/">
+                        <img class="card-img-cat" src="https://image.reliancejewels.com/Jewels/media/dsimg/8.jpg"
+                            alt="..." loading="lazy">
+                        <div class="card-body">
+                            <h3>Pendant Set</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-sm-2 col-4 prod-margin">
+                <div class="card-prod h-100">
+                    <a href="https://www.reliancejewels.com/category:169/">
+                        <img class="card-img-cat" src="https://image.reliancejewels.com/Jewels/media/dsimg/9.jpg"
+                            alt="..." loading="lazy">
+                        <div class="card-body">
+                            <h3>Mangalsutra</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-sm-2 col-4 prod-margin">
+                <div class="card-prod h-100">
+                    <a href="https://www.reliancejewels.com/idols/category:197/sort:New+Arrivals/">
+                        <img class="card-img-cat" src="https://image.reliancejewels.com/Jewels/media/dsimg/10.jpg"
+                            alt="..." loading="lazy">
+                        <div class="card-body">
+                            <h3>Idols</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-sm-2 col-4 prod-margin">
+                <div class="card-prod h-100">
+                    <a href="https://www.reliancejewels.com/anklets/category:192/">
+                        <img class="card-img-cat" src="https://image.reliancejewels.com/Jewels/media/dsimg/11.jpg"
+                            alt="..." loading="lazy">
+                        <div class="card-body">
+                            <h3>Anklets</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-sm-2 col-4 prod-margin">
+                <div class="card-prod h-100">
+                    <a href="https://www.reliancejewels.com/category:189/">
+                        <img class="card-img-cat" src="https://image.reliancejewels.com/Jewels/media/dsimg/12.jpg"
+                            alt="..." loading="lazy">
+                        <div class="card-body">
+                            <h3>Coins</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer class="footer">
+        By messaging Jewelshub, you agree to our <a href="#">Terms</a> and have read our <a href="#">Privacy Policy</a>.
+    </footer>
+
+    <button class="help-button">?</button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
