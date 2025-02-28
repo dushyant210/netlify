@@ -239,7 +239,10 @@ a {
 
 
 
-
+.accordion-button:focus {
+    box-shadow: none;
+    outline: none;
+}
 
 /* 📱 Mobile (max-width: 767px) */
 @media (max-width: 767px) {
@@ -265,6 +268,17 @@ a {
         display: none;
     }
 
+
+    @media (max-width: 768px) {
+        .accordion-button {
+            font-size: 16px;
+            padding: 10px;
+        }
+        .table td, .table th {
+            font-size: 12px;
+            padding: 6px;
+        }
+    }
 
 }
 
@@ -292,6 +306,7 @@ a {
     width: 100%;
     background-color: #fff;
     bottom: 0;
+    z-index: 99;
 }
 
 .navbar {
