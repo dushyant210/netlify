@@ -94,43 +94,86 @@
                                 <!-- Product Details Section -->
                                 <div class="col-md-6">
                                     <h1 class="product-title">Gold Necklace with Elegant Design</h1>
-                                    <p class="product-price">₹12,999</p>
-                                    <p class="product-description">
-                                        This exquisite gold necklace is handcrafted with precision, featuring intricate
-                                        detailing and a timeless design.
-                                        Perfect for weddings, anniversaries, and special occasions, this piece adds a
-                                        touch of elegance to any attire.
-                                    </p>
-
-                                    <!-- Quantity Selector & Add to Cart Button -->
-                                    <div class="d-flex align-items-center">
-                                        <label for="quantity" class="me-2">Quantity:</label>
-                                        <input type="number" id="quantity" class="form-control w-25 me-3" value="1"
-                                            min="1">
-                                        <!-- <button class="btn btn-primary">Add to Cart</button> -->
-                                    </div>
-
-                                    <!-- Additional Details -->
-                                    <ul class="mt-4">
+                                    <p class="product-price fs-4 fw-bold text-danger">₹12,999</p>
+                                    <p class="product-description">This exquisite gold necklace is handcrafted with precision, featuring intricate detailing and a timeless design.</p>
+                    
+                                    <!-- Product Specifications -->
+                                    <ul class="mt-3">
                                         <li>Material: 22K Gold</li>
-                                        <li>Weight: 15g</li>
+                                        <li>Weight: <span id="selected-weight">15g</span></li>
                                         <li>Stone Type: Diamond</li>
                                         <li>Warranty: 1 Year</li>
                                     </ul>
+                    
+                                    <!-- Availability & Shipping Info -->
+                                    <div class="d-flex flex-column gap-1">
+                                        <p class="text-success mb-1">
+                                            <span class="icon-bg"><i class="bi bi-shop text-success"></i></span> 10 Items Available
+                                        </p>
+                                        <p class="text-primary">
+                                            <span class="icon-bg"><i class="bi bi-truck text-primary"></i></span> Available for Shipping
+                                        </p>
+                                    </div>
+                    
+                                    <!-- Weight & Size Dropdowns -->
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="weight" class="form-label">Select Weight:</label>
+                                            <select id="weight" class="form-select">
+                                                <option value="15g">15g</option>
+                                                <option value="20g">20g</option>
+                                                <option value="25g">25g</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="size" class="form-label">Select Size:</label>
+                                            <select id="size" class="form-select">
+                                                <option value="16-inch">16 Inch</option>
+                                                <option value="18-inch">18 Inch</option>
+                                                <option value="20-inch">20 Inch</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                    
+                                    <!-- Quantity Selector -->
+                                    <div class="d-flex align-items-center mt-3">
+                                        <label for="quantity" class="me-2">Quantity:</label>
+                                        <input type="number" id="quantity" class="form-control w-25 me-3" value="1" min="1">
+                                    </div>
                                 </div>
                                 <!-- Full-Width Collapsible Sections -->
                                 <div class="col-md-12">
 
                                     <div class="accordion mt-4" id="productDetails">
-            
+
+                                        <!-- Inventory Lookup -->
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header">
+                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                                    data-bs-target="#inventoryLookup">
+                                                    <i class="bi bi-search me-2"></i> Inventory Lookup
+                                                </button>
+                                            </h2>
+                                            <div id="inventoryLookup" class="accordion-collapse collapse"
+                                                data-bs-parent="#productDetails">
+                                                <div class="accordion-body">
+                                                    <p>Check availability in nearby stores.</p>
+                                                    <input type="text" class="form-control" placeholder="Enter Pincode">
+                                                    <button class="btn btn-primary mt-2">Check Availability</button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
                                         <!-- Specifications -->
                                         <div class="accordion-item">
                                             <h2 class="accordion-header">
-                                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#specifications">
+                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#specifications">
                                                     <i class="bi bi-info-circle me-2"></i> Specifications
                                                 </button>
                                             </h2>
-                                            <div id="specifications" class="accordion-collapse collapse show" data-bs-parent="#productDetails">
+                                            <div id="specifications" class="accordion-collapse collapse"
+                                                data-bs-parent="#productDetails">
                                                 <div class="accordion-body">
                                                     <div class="table-responsive">
                                                         <table class="table table-striped table-bordered">
@@ -177,15 +220,17 @@
                                                 </div>
                                             </div>
                                         </div>
-                            
+
                                         <!-- Price Breakup -->
                                         <div class="accordion-item">
                                             <h2 class="accordion-header">
-                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#priceBreakup">
+                                                <button class="accordion-button collapsed" type="button"
+                                                    data-bs-toggle="collapse" data-bs-target="#priceBreakup">
                                                     <i class="bi bi-cash-stack me-2"></i> Price Breakup
                                                 </button>
                                             </h2>
-                                            <div id="priceBreakup" class="accordion-collapse collapse" data-bs-parent="#productDetails">
+                                            <div id="priceBreakup" class="accordion-collapse collapse"
+                                                data-bs-parent="#productDetails">
                                                 <div class="accordion-body">
                                                     <table class="table table-bordered">
                                                         <tbody>
@@ -215,7 +260,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                            
+
                                     </div> <!-- End of Accordion -->
 
                                 </div>
