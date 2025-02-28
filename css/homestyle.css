@@ -269,3 +269,80 @@
 
 
     }
+
+
+
+    
+
+
+/* Overlay background */
+.overlayBg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent */
+    z-index: 998;
+    display: none;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Navigation overlay */
+.overlayNav {
+    position: fixed;
+    top: 0;
+    left: -250px; /* Hidden off-screen */
+    width: 250px;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8); /* Transparent black */
+    backdrop-filter: blur(10px); /* Smooth glass effect */
+    padding: 20px;
+    z-index: 999;
+    transition: left 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    box-shadow: none; /* Remove box-shadow when hidden */
+}
+
+/* Show overlay */
+.overlayNav.show {
+    left: 0;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3); /* Apply box-shadow only when open */
+}
+
+.overlayBg.show {
+    display: block;
+    opacity: 1;
+}
+
+/* Close button */
+.closeBtn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+}
+
+/* Navigation list */
+.overlayNav ul {
+    list-style: none;
+    padding: 50px 0 0;
+}
+
+.overlayNav ul li {
+    margin: 20px 0;
+}
+
+.overlayNav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    transition: color 0.2s ease-in-out;
+}
+
+.overlayNav ul li a:hover {
+    color: #ff9800; /* Accent color on hover */
+}
+
