@@ -17,15 +17,20 @@
         <div class="container-fluid">
             <div class="d-flex align-items-center">
                 <?xml version="1.0" encoding="utf-8"?>
-                <a href="">
+                <a href="#" id="menuToggle">
                     <svg fill="#000000" width="2em" height="2em" viewBox="0 0 24 24" class="hidden menusvg">
                         <path id="primary" d="M3,12H21M9,18H21M3,6H15"
                             style="fill: none; stroke: rgb(0, 0, 0); stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;">
                         </path>
                     </svg>
                 </a>
+
+
+
+
+
                 <a href="">
-                    <span class="navbar-brand mb-0">JEWELSHUB ●</span>
+                    <span class="navbar-brand mb-0">JEWELSHUB &#9679;</span>
                 </a>
             </div>
             <div class="auth-buttons">
@@ -77,6 +82,21 @@
         </div>
     </nav>
 
+
+    <!-- Navigation Overlay -->
+    <div id="navOverlay" class="overlayNav">
+        <span class="closeBtn">&times;</span>
+        <ul>
+            <li><a href="#">Earrings</a></li>
+            <li><a href="#">Rings</a></li>
+            <li><a href="#">Necklaces</a></li>
+            <li><a href="#">Bracelets</a></li>
+            <li><a href="#">Bangles</a></li>
+        </ul>
+    </div>
+    <!-- Background Overlay -->
+    <div id="overlayBg" class="overlayBg"></div>
+
     <main class="main-container">
 
         <div class="d-flex h-100 w-100">
@@ -95,8 +115,9 @@
                                 <div class="col-md-6">
                                     <h1 class="product-title">Gold Necklace with Elegant Design</h1>
                                     <p class="product-price fs-4 fw-bold">₹12,999</p>
-                                    <p class="product-description">This exquisite gold necklace is handcrafted with precision, featuring intricate detailing and a timeless design.</p>
-                    
+                                    <p class="product-description">This exquisite gold necklace is handcrafted with
+                                        precision, featuring intricate detailing and a timeless design.</p>
+
                                     <!-- Product Specifications -->
                                     <ul class="mt-3">
                                         <li>Material: 22K Gold</li>
@@ -104,17 +125,19 @@
                                         <li>Stone Type: Diamond</li>
                                         <li>Warranty: 1 Year</li>
                                     </ul>
-                    
+
                                     <!-- Availability & Shipping Info -->
                                     <div class="d-flex flex-column gap-1">
                                         <p class="text-success mb-0">
-                                            <span class="icon-bg"><i class="bi bi-shop text-success"></i></span> 10 Items Available
+                                            <span class="icon-bg"><i class="bi bi-shop text-success"></i></span> 10
+                                            Items Available
                                         </p>
                                         <p class="text-primary">
-                                            <span class="icon-bg"><i class="bi bi-truck text-primary"></i></span> Available for Shipping
+                                            <span class="icon-bg"><i class="bi bi-truck text-primary"></i></span>
+                                            Available for Shipping
                                         </p>
                                     </div>
-                    
+
                                     <!-- Weight & Size Dropdowns -->
                                     <div class="row">
                                         <div class="col-md-6">
@@ -134,7 +157,7 @@
                                             </select>
                                         </div>
                                     </div>
-                    
+
                                     <!-- Quantity Selector -->
                                     <!-- <div class="d-flex align-items-center mt-3">
                                         <label for="quantity" class="me-2">Quantity:</label>
@@ -149,8 +172,8 @@
                                         <!-- Inventory Lookup -->
                                         <div class="accordion-item">
                                             <h2 class="accordion-header">
-                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                                    data-bs-target="#inventoryLookup">
+                                                <button class="accordion-button collapsed" type="button"
+                                                    data-bs-toggle="collapse" data-bs-target="#inventoryLookup">
                                                     <i class="bi bi-search me-2"></i> Inventory Lookup
                                                 </button>
                                             </h2>
@@ -168,7 +191,8 @@
                                         <!-- Specifications -->
                                         <div class="accordion-item">
                                             <h2 class="accordion-header">
-                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#specifications">
+                                                <button class="accordion-button collapsed" type="button"
+                                                    data-bs-toggle="collapse" data-bs-target="#specifications">
                                                     <i class="bi bi-info-circle me-2"></i> Specifications
                                                 </button>
                                             </h2>
