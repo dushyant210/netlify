@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jewelshub</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="./css/clpstyle.css" />
+  <style>
+    .action-button {
+      margin-right: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <main class="main-container">
+    <div class="d-flex h-100 w-100">
+      <div class="d-flex flex-fill flex-column">
+        <div class="d-flex flex-column overflow-hidden">
+          <div class="message-box">
+            <div class="chat-input-container d-flex flex-column p-1 px-3">
+              <div>
+                <textarea class="chat-input" rows="1" placeholder="Message Jewelshub"></textarea>
+              </div>
+              <div class="input-actions mb-2">
+                <button id="sortBtn" class="action-button btn btn-outline-primary">
+                  Sort By
+                </button>
+                <!-- Trigger the filter modal -->
+                <button id="filterBtn" class="action-button btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#filterModal">
+                  Filter By
+                </button>
+              </div>
+            </div>
+            <footer class="footer">
+              By messaging Jewelshub, you agree to our <a href="#">T&C</a>.
+            </footer>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Filter Modal -->
+  <div class="modal fade" id="filterModal" tabindex="-1" aria-labelledby="filterModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="filterModalLabel">Jewellery Filters</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="container-fluid">
+            <!-- Row 1: Type and Material -->
+            <div class="row mb-3">
+              <div class="col-12 col-md-6">
+                <h6>Type</h6>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="typeNecklace">
+                  <label class="form-check-label" for="typeNecklace">Necklace</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="typeEarrings">
+                  <label class="form-check-label" for="typeEarrings">Earrings</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="typeBracelets">
+                  <label class="form-check-label" for="typeBracelets">Bracelets</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="typeRings">
+                  <label class="form-check-label" for="typeRings">Rings</label>
+                </div>
+              </div>
+              <div class="col-12 col-md-6">
+                <h6>Material</h6>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="materialGold">
+                  <label class="form-check-label" for="materialGold">Gold</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="materialSilver">
+                  <label class="form-check-label" for="materialSilver">Silver</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="materialDiamond">
+                  <label class="form-check-label" for="materialDiamond">Diamond</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="materialPlatinum">
+                  <label class="form-check-label" for="materialPlatinum">Platinum</label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Row 2: Price Range and Color -->
+            <div class="row mb-3">
+              <div class="col-12 col-md-6">
+                <h6>Price Range</h6>
+                <input type="range" class="form-range" min="100" max="10000" step="100" id="priceRange">
+                <div id="priceRangeValue" class="mt-2">₹100 - ₹10000</div>
+              </div>
+              <div class="col-12 col-md-6">
+                <h6>Color</h6>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="colorRed">
+                  <label class="form-check-label" for="colorRed">Red</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="colorBlue">
+                  <label class="form-check-label" for="colorBlue">Blue</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="colorGreen">
+                  <label class="form-check-label" for="colorGreen">Green</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="colorBlack">
+                  <label class="form-check-label" for="colorBlack">Black</label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Row 3: Design Style and Occasion -->
+            <div class="row mb-3">
+              <div class="col-12 col-md-6">
+                <h6>Design Style</h6>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="styleModern">
+                  <label class="form-check-label" for="styleModern">Modern</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="styleVintage">
+                  <label class="form-check-label" for="styleVintage">Vintage</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="styleEthnic">
+                  <label class="form-check-label" for="styleEthnic">Ethnic</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="styleClassic">
+                  <label class="form-check-label" for="styleClassic">Classic</label>
+                </div>
+              </div>
+              <div class="col-12 col-md-6">
+                <h6>Occasion</h6>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="occasionWedding">
+                  <label class="form-check-label" for="occasionWedding">Wedding</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="occasionCasual">
+                  <label class="form-check-label" for="occasionCasual">Casual</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="occasionFormal">
+                  <label class="form-check-label" for="occasionFormal">Formal</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="occasionParty">
+                  <label class="form-check-label" for="occasionParty">Party</label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Row 4: Certification and Weight -->
+            <div class="row mb-3">
+              <div class="col-12 col-md-6">
+                <h6>Certification</h6>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="certHallmark">
+                  <label class="form-check-label" for="certHallmark">Hallmark</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="certGIA">
+                  <label class="form-check-label" for="certGIA">GIA Certified</label>
+                </div>
+              </div>
+              <div class="col-12 col-md-6">
+                <h6>Weight (in grams)</h6>
+                <input type="range" class="form-range" min="1" max="100" step="1" id="weightRange">
+                <div id="weightRangeValue" class="mt-2">1g - 100g</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Apply Filters</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Optional: JS for handling dynamic display of range inputs -->
+  <script>
+    // Update Price Range Value
+    const priceRange = document.getElementById("priceRange");
+    const priceRangeValue = document.getElementById("priceRangeValue");
+    priceRange.addEventListener("input", function () {
+      priceRangeValue.innerText = `₹${priceRange.value} - ₹10000`;
+    });
+
+    // Update Weight Range Value
+    const weightRange = document.getElementById("weightRange");
+    const weightRangeValue = document.getElementById("weightRangeValue");
+    weightRange.addEventListener("input", function () {
+      weightRangeValue.innerText = `${weightRange.value}g - 100g`;
+    });
+  </script>
+  <script src="./js/script.js"></script>
+</body>
+</html>
