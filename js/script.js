@@ -22,3 +22,19 @@ document.addEventListener("DOMContentLoaded", function () {
         overlayBg.classList.remove("show");
     });
 });
+
+
+
+// filters
+const priceRange = document.getElementById("priceRange");
+const priceRangeValue = document.getElementById("priceRangeValue");
+priceRange.addEventListener("input", function () {
+  priceRangeValue.innerText = `₹${priceRange.value} - ₹10000`;
+});
+const weightRange = document.getElementById("weightRange");
+const weightRangeValue = document.getElementById("weightRangeValue");
+weightRange.addEventListener("input", function () {
+  weightRangeValue.innerText = `${weightRange.value}g - 100g`;
+});
+
+
