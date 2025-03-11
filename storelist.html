@@ -3,85 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Store Locator</title>
+    <title>Store List</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="./css/storelist.css" rel="stylesheet">
 </head>
 <body>
     <div class="container">
         <!-- Header Section -->
         <div class="header">
-            <h1>Pincode Delivery Checker</h1>
-            <h2>110083</h2>
-        </div>
-
-        <!-- Search Section -->
-        <div class="search-section">
-            <div class="row g-3">
-                <div class="col-lg col-12">
-                    <input type="text" class="form-control" placeholder="Store Name">
-                </div>
-                <div class="col-lg col-12">
-                    <input type="text" class="form-control" placeholder="Store Code">
-                </div>
-                <div class="col-lg col-12">
-                    <select class="form-select">
-                        <option selected>Select State</option>
-                        <option>West Bengal</option>
-                        <option>Karnataka</option>
-                        <option>Maharashtra</option>
-                        <option>Orissa</option>
-                        <option>Delhi</option>
-                        <option>Uttar Pradesh</option>
-                        <option>Bihar</option>
-                        <option>Punjab</option>
-                        <option>Jharkhand</option>
-                    </select>
-                </div>
-                <div class="col-lg col-12">
-                    <select class="form-select">
-                        <option selected>Select City</option>
-                        <option>Durgapur</option>
-                        <option>Bangalore</option>
-                        <option>Mumbai</option>
-                        <option>Rourkela</option>
-                        <option>Delhi</option>
-                        <option>Varanasi</option>
-                        <option>Darbhanga</option>
-                        <option>Mysore</option>
-                        <option>Moradabad</option>
-                        <option>Jalandhar</option>
-                        <option>Ranchi</option>
-                    </select>
-                </div>
-                <div class="col-lg col-12 d-flex gap-2">
-                    <button class="btn btn-primary flex-grow-1">Search</button>
-                    <button class="btn btn-outline-secondary flex-grow-1">Reset</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Note -->
-        <div class="note">
-            * Click reset button to see complete Pan India store list
-        </div>
-
-        <!-- Store Info -->
-        <div class="store-info">
-            <h3>Nearest</h3>
-            <h4>Pan India</h4>
+            <h1>Store List</h1>
         </div>
 
         <!-- Store Table -->
         <div class="table-responsive">
-            <table class="table" id="storeTable">
+            <table class="table">
                 <thead>
                     <tr>
                         <th>Store Name</th>
                         <th>Store Code</th>
                         <th>State</th>
                         <th>City</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -90,134 +35,93 @@
                         <td>TP84</td>
                         <td>West Bengal</td>
                         <td>Durgapur</td>
+                        <td class="text-end"><i class="bi bi-chevron-right arrow-icon"></i></td>
                     </tr>
                     <tr>
                         <td>Bangalore_Galleria M</td>
                         <td>T1PK</td>
                         <td>Karnataka</td>
                         <td>Bangalore</td>
+                        <td class="text-end"><i class="bi bi-chevron-right arrow-icon"></i></td>
                     </tr>
                     <tr>
                         <td>Mumbai_Vashi Sec 1</td>
                         <td>TLC0</td>
                         <td>Maharashtra</td>
                         <td>Mumbai</td>
+                        <td class="text-end"><i class="bi bi-chevron-right arrow-icon"></i></td>
                     </tr>
                     <tr>
                         <td>Rourkela_Kachery Rd</td>
                         <td>TN72</td>
                         <td>Orissa</td>
                         <td>Rourkela</td>
+                        <td class="text-end"><i class="bi bi-chevron-right arrow-icon"></i></td>
                     </tr>
                     <tr>
                         <td>Mall- Bangalore_Falcon</td>
                         <td>T64X</td>
                         <td>Karnataka</td>
                         <td>Bangalore</td>
+                        <td class="text-end"><i class="bi bi-chevron-right arrow-icon"></i></td>
                     </tr>
                     <tr>
                         <td>N Delhi_Preet Vihar</td>
                         <td>8411</td>
                         <td>Delhi</td>
                         <td>Delhi</td>
+                        <td class="text-end"><i class="bi bi-chevron-right arrow-icon"></i></td>
                     </tr>
                     <tr>
                         <td>Varanasi_Rathyatra</td>
                         <td>8455</td>
                         <td>Uttar Pradesh</td>
                         <td>Varanasi</td>
+                        <td class="text-end"><i class="bi bi-chevron-right arrow-icon"></i></td>
                     </tr>
                     <tr>
                         <td>Darbhanga_GM Road</td>
                         <td>TCQ5</td>
                         <td>Bihar</td>
                         <td>Darbhanga</td>
+                        <td class="text-end"><i class="bi bi-chevron-right arrow-icon"></i></td>
                     </tr>
                     <tr>
                         <td>Mysore_Devraj Urs Rd</td>
                         <td>TCQ4</td>
                         <td>Karnataka</td>
                         <td>Mysore</td>
+                        <td class="text-end"><i class="bi bi-chevron-right arrow-icon"></i></td>
                     </tr>
                     <tr>
                         <td>Moradabad_Kanth Road</td>
                         <td>TCL3</td>
                         <td>Uttar Pradesh</td>
                         <td>Moradabad</td>
+                        <td class="text-end"><i class="bi bi-chevron-right arrow-icon"></i></td>
                     </tr>
                     <tr>
                         <td>Mall- Jalandhar_PUDA</td>
                         <td>T538</td>
                         <td>Punjab</td>
                         <td>Jalandhar</td>
+                        <td class="text-end"><i class="bi bi-chevron-right arrow-icon"></i></td>
                     </tr>
                     <tr>
                         <td>Ranchi_MG Road</td>
                         <td>TH44</td>
                         <td>Jharkhand</td>
                         <td>Ranchi</td>
+                        <td class="text-end"><i class="bi bi-chevron-right arrow-icon"></i></td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </div>
 
-    <!-- Product Modal -->
-    <div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="productModalLabel">Product Details</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="product-detail">
-                        <div class="product-detail-label">SKU Code</div>
-                        <div class="product-detail-value">SKU2985473</div>
-                    </div>
-                    <div class="product-detail">
-                        <div class="product-detail-label">Name</div>
-                        <div class="product-detail-value">22 Karat Gold Earrings-Gross Weight-10.947g</div>
-                    </div>
-                    <div class="product-price">₹96,623</div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-prebook">Prebook</button>
-                    <button type="button" class="btn btn-assistance">Live Assistance</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- Bootstrap JS Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    
-    <!-- Custom JavaScript -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Get the table and add click event listeners to all rows
-            const table = document.getElementById('storeTable');
-            const tbody = table.querySelector('tbody');
-            const rows = tbody.querySelectorAll('tr');
-            
-            // Create a modal instance
-            const productModal = new bootstrap.Modal(document.getElementById('productModal'));
-            
-            // Add click event to each row
-            rows.forEach(row => {
-                row.addEventListener('click', function() {
-                    // Get store name from the first cell
-                    const storeName = this.cells[0].textContent;
-                    
-                    // Update modal title with store name
-                    document.getElementById('productModalLabel').textContent = 
-                        `Product Details - ${storeName}`;
-                    
-                    // Show the modal
-                    productModal.show();
-                });
-            });
-        });
-    </script>
+    <script src="./js/storelist.js"></script>
+
 </body>
 </html>

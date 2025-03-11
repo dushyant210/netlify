@@ -490,18 +490,18 @@ a {
 /* width */
 ::-webkit-scrollbar {
     height: 1px;
-  }
-  
-  /* Track */
-  ::-webkit-scrollbar-track {
-    background: #f1f1f1; 
-  }
-   
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: #888; 
-  }
-  
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
 
 /* Desktop - Thumbnails in a Row (Aligned Left to Right) */
 @media (min-width: 768px) {
@@ -520,3 +520,140 @@ a {
     flex: 0 0 auto;
     /* Prevent stretching */
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* filters popup start*/
+/* filters popup start*/
+/* filters popup start*/
+
+
+.modal-content {
+    border: none;
+    border-radius: 20px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    font-family: 'Poppins', sans-serif;
+}
+
+.modal-header {
+    background: linear-gradient(135deg, #00c6ff, #0072ff);
+    color: #fff;
+    padding: 1.5rem 2rem;
+    border-bottom: none;
+}
+
+.modal-header .modal-title {
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+
+.modal-body {
+    padding: 2rem;
+    background: transparent;
+}
+
+.modal-footer {
+    background: transparent;
+    padding: 1rem 2rem;
+    border-top: none;
+}
+
+/* Filter Section Cards with glass effect */
+.filter-section {
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 16px;
+    padding: 1.25rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.filter-section h6 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: #333;
+}
+
+.form-check-label {
+    font-size: 0.95rem;
+    color: #555;
+}
+
+/* Modern Range Slider */
+input[type="range"] {
+    width: 100%;
+    margin: 0.75rem 0;
+    height: 5px;
+    border-radius: 5px;
+    background: #e0e0e0;
+    -webkit-appearance: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 18px;
+    width: 18px;
+    border-radius: 50%;
+    background: #0072ff;
+    border: 2px solid #fff;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+    background: #005bb5;
+}
+
+/* Modern Buttons inside modal */
+.btn-primary {
+    background: #0072ff;
+    border: none;
+    border-radius: 12px;
+    padding: 0.5rem 2rem;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.btn-primary:hover {
+    background: #005bb5;
+}
+
+.btn-secondary {
+    background: rgba(0, 0, 0, 0.05);
+    border: none;
+    border-radius: 12px;
+    padding: 0.5rem 2rem;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #555;
+}
+
+.btn-secondary:hover {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+/* filters popup ends*/
+/* filters popup ends*/
+/* filters popup ends*/

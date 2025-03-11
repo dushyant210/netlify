@@ -24,6 +24,7 @@
     <!-- header starts from here -->
 
 
+
     <nav class="navbar position-sticky top-0 z-3">
         <div class="container-fluid">
             <div class="d-flex align-items-center">
@@ -201,6 +202,199 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+    <div class="modal fade" id="filterModal" tabindex="-1" aria-labelledby="filterModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="filterModalLabel">Jewellery Filters</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <!-- Row 1: Type and Material -->
+                        <div class="row">
+                            <div class="col-12 col-md-6 filter-section">
+                                <h6>Type</h6>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="typeNecklace">
+                                    <label class="form-check-label" for="typeNecklace">Necklace</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="typeEarrings">
+                                    <label class="form-check-label" for="typeEarrings">Earrings</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="typeBracelets">
+                                    <label class="form-check-label" for="typeBracelets">Bracelets</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="typeRings">
+                                    <label class="form-check-label" for="typeRings">Rings</label>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 filter-section">
+                                <h6>Material</h6>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="materialGold">
+                                    <label class="form-check-label" for="materialGold">Gold</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="materialSilver">
+                                    <label class="form-check-label" for="materialSilver">Silver</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="materialDiamond">
+                                    <label class="form-check-label" for="materialDiamond">Diamond</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="materialPlatinum">
+                                    <label class="form-check-label" for="materialPlatinum">Platinum</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Row 2: Price Range and Color -->
+                        <div class="row mt-3">
+                            <div class="col-12 col-md-6 filter-section">
+                                <h6>Price Range</h6>
+                                <input type="range" class="form-range" min="100" max="10000" step="100" id="priceRange">
+                                <div id="priceRangeValue" class="mt-2">₹100 - ₹10000</div>
+                            </div>
+                            <div class="col-12 col-md-6 filter-section">
+                                <h6>Color</h6>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="colorRed">
+                                    <label class="form-check-label" for="colorRed">Red</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="colorBlue">
+                                    <label class="form-check-label" for="colorBlue">Blue</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="colorGreen">
+                                    <label class="form-check-label" for="colorGreen">Green</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="colorBlack">
+                                    <label class="form-check-label" for="colorBlack">Black</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Row 3: Design Style and Occasion -->
+                        <div class="row mt-3">
+                            <div class="col-12 col-md-6 filter-section">
+                                <h6>Design Style</h6>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="styleModern">
+                                    <label class="form-check-label" for="styleModern">Modern</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="styleVintage">
+                                    <label class="form-check-label" for="styleVintage">Vintage</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="styleEthnic">
+                                    <label class="form-check-label" for="styleEthnic">Ethnic</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="styleClassic">
+                                    <label class="form-check-label" for="styleClassic">Classic</label>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 filter-section">
+                                <h6>Occasion</h6>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="occasionWedding">
+                                    <label class="form-check-label" for="occasionWedding">Wedding</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="occasionCasual">
+                                    <label class="form-check-label" for="occasionCasual">Casual</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="occasionFormal">
+                                    <label class="form-check-label" for="occasionFormal">Formal</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="occasionParty">
+                                    <label class="form-check-label" for="occasionParty">Party</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Row 4: Certification and Weight -->
+                        <div class="row mt-3">
+                            <div class="col-12 col-md-6 filter-section">
+                                <h6>Certification</h6>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="certHallmark">
+                                    <label class="form-check-label" for="certHallmark">Hallmark</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="certGIA">
+                                    <label class="form-check-label" for="certGIA">GIA Certified</label>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 filter-section">
+                                <h6>Weight (in grams)</h6>
+                                <input type="range" class="form-range" min="1" max="100" step="1" id="weightRange">
+                                <div id="weightRangeValue" class="mt-2">1g - 100g</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Apply Filters</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <!-- footer starts from here -->
     <!-- footer starts from here -->
     <!-- footer starts from here -->
@@ -222,7 +416,7 @@
                         </svg>
                         Sort By
                     </button>
-                    <button class="action-button">
+                    <button class="action-button" id="filterBtn" id="filterBtn" data-bs-toggle="modal"data-bs-target="#filterModal">
                         <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24"
                             stroke-linecap="round" stroke-linejoin="round" height="1em" width="1em">
                             <circle cx="11" cy="11" r="8"></circle>
@@ -265,6 +459,7 @@
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://m.reliancejewels.com/jewelshub/cssjs/jquery-1.8.2.min.js"></script>
     <script src="./js/script.js"></script>
 </body>
 
