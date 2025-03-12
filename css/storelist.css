@@ -203,7 +203,7 @@ body {
 }
 
 
-.btn-success, .btn-outline-secondary, .btn-outline-info {
+.btn-success, .btn-outline-dark, .btn-outline-info {
     padding: 0.6rem 1.5rem;
     font-weight: 500;
 }
