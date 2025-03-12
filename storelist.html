@@ -17,111 +17,119 @@
             <h1>Store List</h1>
         </div>
 
-        <!-- Store Table -->
-        <div class="table-responsive">
-            <table class="table" id="storeTable">
-                <thead>
-                    <tr>
-                        <th>Store Name</th>
-                        <th>Store Code</th>
-                        <th>State</th>
-                        <th>City</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Durgapur_City Centre</td>
-                        <td>TP84</td>
-                        <td>West Bengal</td>
-                        <td>Durgapur</td>
-                        <td class="text-end"><i class="bi bi-chevron-right arrow-icon"></i></td>
-                    </tr>
-                    <tr>
-                        <td>Bangalore_Galleria M</td>
-                        <td>T1PK</td>
-                        <td>Karnataka</td>
-                        <td>Bangalore</td>
-                        <td class="text-end"><i class="bi bi-chevron-right arrow-icon"></i></td>
-                    </tr>
-                    <tr>
-                        <td>Mumbai_Vashi Sec 1</td>
-                        <td>TLC0</td>
-                        <td>Maharashtra</td>
-                        <td>Mumbai</td>
-                        <td class="text-end"><i class="bi bi-chevron-right arrow-icon"></i></td>
-                    </tr>
-                    <tr>
-                        <td>Rourkela_Kachery Rd</td>
-                        <td>TN72</td>
-                        <td>Orissa</td>
-                        <td>Rourkela</td>
-                        <td class="text-end"><i class="bi bi-chevron-right arrow-icon"></i></td>
-                    </tr>
-                    <tr>
-                        <td>Mall- Bangalore_Falcon</td>
-                        <td>T64X</td>
-                        <td>Karnataka</td>
-                        <td>Bangalore</td>
-                        <td class="text-end"><i class="bi bi-chevron-right arrow-icon"></i></td>
-                    </tr>
-                    <tr>
-                        <td>N Delhi_Preet Vihar</td>
-                        <td>8411</td>
-                        <td>Delhi</td>
-                        <td>Delhi</td>
-                        <td class="text-end"><i class="bi bi-chevron-right arrow-icon"></i></td>
-                    </tr>
-                    <tr>
-                        <td>Varanasi_Rathyatra</td>
-                        <td>8455</td>
-                        <td>Uttar Pradesh</td>
-                        <td>Varanasi</td>
-                        <td class="text-end"><i class="bi bi-chevron-right arrow-icon"></i></td>
-                    </tr>
-                    <tr>
-                        <td>Darbhanga_GM Road</td>
-                        <td>TCQ5</td>
-                        <td>Bihar</td>
-                        <td>Darbhanga</td>
-                        <td class="text-end"><i class="bi bi-chevron-right arrow-icon"></i></td>
-                    </tr>
-                    <tr>
-                        <td>Mysore_Devraj Urs Rd</td>
-                        <td>TCQ4</td>
-                        <td>Karnataka</td>
-                        <td>Mysore</td>
-                        <td class="text-end"><i class="bi bi-chevron-right arrow-icon"></i></td>
-                    </tr>
-                    <tr>
-                        <td>Moradabad_Kanth Road</td>
-                        <td>TCL3</td>
-                        <td>Uttar Pradesh</td>
-                        <td>Moradabad</td>
-                        <td class="text-end"><i class="bi bi-chevron-right arrow-icon"></i></td>
-                    </tr>
-                    <tr>
-                        <td>Mall- Jalandhar_PUDA</td>
-                        <td>T538</td>
-                        <td>Punjab</td>
-                        <td>Jalandhar</td>
-                        <td class="text-end"><i class="bi bi-chevron-right arrow-icon"></i></td>
-                    </tr>
-                    <tr>
-                        <td>Ranchi_MG Road</td>
-                        <td>TH44</td>
-                        <td>Jharkhand</td>
-                        <td>Ranchi</td>
-                        <td class="text-end"><i class="bi bi-chevron-right arrow-icon"></i></td>
-                    </tr>
-                </tbody>
-            </table>
+        <!-- Desktop Table View -->
+        <div class="desktop-table">
+            <div class="table-responsive">
+                <table class="table" id="storeTable">
+                    <thead>
+                        <tr>
+                            <th>Store Name</th>
+                            <th>Store Code</th>
+                            <th>State</th>
+                            <th>City</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr data-name="Durgapur_City Centre" data-code="TP84" data-state="West Bengal" data-city="Durgapur">
+                            <td>Durgapur_City Centre</td>
+                            <td>TP84</td>
+                            <td>West Bengal</td>
+                            <td>Durgapur</td>
+                            <td class="text-end"><i class="bi bi-chevron-right arrow-icon"></i></td>
+                        </tr>
+                        <tr data-name="Bangalore_Galleria M" data-code="T1PK" data-state="Karnataka" data-city="Bangalore">
+                            <td>Bangalore_Galleria M</td>
+                            <td>T1PK</td>
+                            <td>Karnataka</td>
+                            <td>Bangalore</td>
+                            <td class="text-end"><i class="bi bi-chevron-right arrow-icon"></i></td>
+                        </tr>
+                        <tr data-name="Mumbai_Vashi Sec 1" data-code="TLC0" data-state="Maharashtra" data-city="Mumbai">
+                            <td>Mumbai_Vashi Sec 1</td>
+                            <td>TLC0</td>
+                            <td>Maharashtra</td>
+                            <td>Mumbai</td>
+                            <td class="text-end"><i class="bi bi-chevron-right arrow-icon"></i></td>
+                        </tr>
+                        <tr data-name="Rourkela_Kachery Rd" data-code="TN72" data-state="Orissa" data-city="Rourkela">
+                            <td>Rourkela_Kachery Rd</td>
+                            <td>TN72</td>
+                            <td>Orissa</td>
+                            <td>Rourkela</td>
+                            <td class="text-end"><i class="bi bi-chevron-right arrow-icon"></i></td>
+                        </tr>
+                        <tr data-name="Mall- Bangalore_Falcon" data-code="T64X" data-state="Karnataka" data-city="Bangalore">
+                            <td>Mall- Bangalore_Falcon</td>
+                            <td>T64X</td>
+                            <td>Karnataka</td>
+                            <td>Bangalore</td>
+                            <td class="text-end"><i class="bi bi-chevron-right arrow-icon"></i></td>
+                        </tr>
+                        <tr data-name="N Delhi_Preet Vihar" data-code="8411" data-state="Delhi" data-city="Delhi">
+                            <td>N Delhi_Preet Vihar</td>
+                            <td>8411</td>
+                            <td>Delhi</td>
+                            <td>Delhi</td>
+                            <td class="text-end"><i class="bi bi-chevron-right arrow-icon"></i></td>
+                        </tr>
+                        <tr data-name="Varanasi_Rathyatra" data-code="8455" data-state="Uttar Pradesh" data-city="Varanasi">
+                            <td>Varanasi_Rathyatra</td>
+                            <td>8455</td>
+                            <td>Uttar Pradesh</td>
+                            <td>Varanasi</td>
+                            <td class="text-end"><i class="bi bi-chevron-right arrow-icon"></i></td>
+                        </tr>
+                        <tr data-name="Darbhanga_GM Road" data-code="TCQ5" data-state="Bihar" data-city="Darbhanga">
+                            <td>Darbhanga_GM Road</td>
+                            <td>TCQ5</td>
+                            <td>Bihar</td>
+                            <td>Darbhanga</td>
+                            <td class="text-end"><i class="bi bi-chevron-right arrow-icon"></i></td>
+                        </tr>
+                        <tr data-name="Mysore_Devraj Urs Rd" data-code="TCQ4" data-state="Karnataka" data-city="Mysore">
+                            <td>Mysore_Devraj Urs Rd</td>
+                            <td>TCQ4</td>
+                            <td>Karnataka</td>
+                            <td>Mysore</td>
+                            <td class="text-end"><i class="bi bi-chevron-right arrow-icon"></i></td>
+                        </tr>
+                        <tr data-name="Moradabad_Kanth Road" data-code="TCL3" data-state="Uttar Pradesh" data-city="Moradabad">
+                            <td>Moradabad_Kanth Road</td>
+                            <td>TCL3</td>
+                            <td>Uttar Pradesh</td>
+                            <td>Moradabad</td>
+                            <td class="text-end"><i class="bi bi-chevron-right arrow-icon"></i></td>
+                        </tr>
+                        <tr data-name="Mall- Jalandhar_PUDA" data-code="T538" data-state="Punjab" data-city="Jalandhar">
+                            <td>Mall- Jalandhar_PUDA</td>
+                            <td>T538</td>
+                            <td>Punjab</td>
+                            <td>Jalandhar</td>
+                            <td class="text-end"><i class="bi bi-chevron-right arrow-icon"></i></td>
+                        </tr>
+                        <tr data-name="Ranchi_MG Road" data-code="TH44" data-state="Jharkhand" data-city="Ranchi">
+                            <td>Ranchi_MG Road</td>
+                            <td>TH44</td>
+                            <td>Jharkhand</td>
+                            <td>Ranchi</td>
+                            <td class="text-end"><i class="bi bi-chevron-right arrow-icon"></i></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <!-- Mobile Card View -->
+        <div class="mobile-cards" id="storeCards">
+            <!-- Store cards will be populated here -->
         </div>
     </div>
 
     <!-- Bootstrap JS Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="./js/storelist.js"></script>
-
+    
+    <!-- Custom JavaScript -->
 </body>
 </html>

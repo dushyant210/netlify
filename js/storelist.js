@@ -1,4 +1,69 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Get all store data from the table
+    const storeData = [];
+    const tableRows = document.querySelectorAll('#storeTable tbody tr');
+    
+    tableRows.forEach(row => {
+        storeData.push({
+            name: row.dataset.name,
+            code: row.dataset.code,
+            state: row.dataset.state,
+            city: row.dataset.city
+        });
+    });
+    
+    // Populate mobile cards
+    const cardsContainer = document.getElementById('storeCards');
+    
+    storeData.forEach(store => {
+        const card = document.createElement('div');
+        card.className = 'store-card';
+        card.dataset.name = store.name;
+        card.dataset.code = store.code;
+        card.dataset.state = store.state;
+        card.dataset.city = store.city;
+        
+        card.innerHTML = `
+            <div class="store-card-name">${store.name}</div>
+            <div class="store-card-code">Code: ${store.code}</div>
+            <div class="store-card-location">${store.city}, ${store.state}</div>
+            <div class="store-card-arrow"><i class="bi bi-chevron-right"></i></div>
+        `;
+        
+        cardsContainer.appendChild(card);
+    });
+    
+    // Add click event to table rows
+    tableRows.forEach(row => {
+        row.addEventListener('click', function() {
+            navigateToStoreProducts(this.dataset);
+        });
+    });
+    
+    // Add click event to mobile cards
+    const storeCards = document.querySelectorAll('.store-card');
+    storeCards.forEach(card => {
+        card.addEventListener('click', function() {
+            navigateToStoreProducts(this.dataset);
+        });
+    });
+    
+    // Function to navigate to store products page
+    function navigateToStoreProducts(storeData) {
+        const params = new URLSearchParams({
+            name: storeData.name,
+            code: storeData.code,
+            state: storeData.state,
+            city: storeData.city
+        });
+        
+        window.location.href = `store-products.html?${params.toString()}`;
+    }
+});
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
     // Get store details from URL parameters
     const urlParams = new URLSearchParams(window.location.search);
     const storeName = urlParams.get('name');
@@ -22,22 +87,29 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('productTable').addEventListener('click', function(e) {
         const target = e.target.closest('tr');
         if (target && target.dataset.sku) {
-            const sku = target.dataset.sku;
-            const name = target.dataset.name;
-            const price = target.dataset.price;
-            const inventory = target.dataset.inventory;
-
-            // Update modal content
-            document.getElementById('modalSkuCode').textContent = sku;
-            document.getElementById('modalProductName').textContent = name;
-            document.getElementById('modalPrice').textContent = price;
-            document.getElementById('modalInventory').textContent = inventory;
-
-            // Show the modal
-            productModal.show();
+            showProductModal(target.dataset, productModal);
+        }
+    });
+    
+    // Add click event listener to the product cards
+    document.getElementById('productCards').addEventListener('click', function(e) {
+        const target = e.target.closest('.product-card');
+        if (target && target.dataset.sku) {
+            showProductModal(target.dataset, productModal);
         }
     });
 });
+
+function showProductModal(data, modal) {
+    // Update modal content
+    document.getElementById('modalSkuCode').textContent = data.sku;
+    document.getElementById('modalProductName').textContent = data.name;
+    document.getElementById('modalPrice').textContent = data.price;
+    document.getElementById('modalInventory').textContent = data.inventory;
+
+    // Show the modal
+    modal.show();
+}
 
 function fetchAndDisplayProducts(storeCode) {
     // This is a mock function. In a real application, you would fetch this data from a server.
@@ -49,10 +121,16 @@ function fetchAndDisplayProducts(storeCode) {
         { sku: 'SKU2985477', name: '18 Karat Gold Bracelet-Gross Weight-12.345g', price: '₹62,780', inventory: 4 }
     ];
 
+    // Populate the table for desktop view
     const tableBody = document.querySelector('#productTable tbody');
     tableBody.innerHTML = '';
 
+    // Populate the cards container for mobile view
+    const cardsContainer = document.getElementById('productCards');
+    cardsContainer.innerHTML = '';
+
     mockProducts.forEach(product => {
+        // Create table row for desktop
         const row = document.createElement('tr');
         row.dataset.sku = product.sku;
         row.dataset.name = product.name;
@@ -67,35 +145,22 @@ function fetchAndDisplayProducts(storeCode) {
         `;
         
         tableBody.appendChild(row);
+        
+        // Create card for mobile
+        const card = document.createElement('div');
+        card.className = 'product-card';
+        card.dataset.sku = product.sku;
+        card.dataset.name = product.name;
+        card.dataset.price = product.price;
+        card.dataset.inventory = product.inventory;
+        
+        card.innerHTML = `
+            <div class="product-card-title">${product.name}</div>
+            <div class="product-card-sku">SKU: ${product.sku}</div>
+            <div class="product-card-price">${product.price}</div>
+            <div class="product-card-inventory">In Stock: ${product.inventory}</div>
+        `;
+        
+        cardsContainer.appendChild(card);
     });
 }
-
-
-
-document.addEventListener('DOMContentLoaded', function() {
-    const table = document.getElementById('storeTable');
-    const tbody = table.querySelector('tbody');
-    const rows = tbody.querySelectorAll('tr');
-    
-    // Add click event to each row
-    rows.forEach(row => {
-        row.addEventListener('click', function() {
-            // Get store details
-            const storeName = this.cells[0].textContent;
-            const storeCode = this.cells[1].textContent;
-            const state = this.cells[2].textContent;
-            const city = this.cells[3].textContent;
-            
-            // Encode the store details to pass in the URL
-            const params = new URLSearchParams({
-                name: storeName,
-                code: storeCode,
-                state: state,
-                city: city
-            });
-            
-            // Navigate to the store products page
-            window.location.href = `store-products.html?${params.toString()}`;
-        });
-    });
-});
