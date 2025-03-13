@@ -1,8 +1,20 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
+    // Initialize the store list
+    initializeStoreList();
+
+    // Check screen size and adjust view
+    checkScreenSize();
+
+    // Listen for window resize to adjust view
+    window.addEventListener('resize', checkScreenSize);
+});
+
+// Initialize the store list
+function initializeStoreList() {
     // Get all store data from the table
     const storeData = [];
     const tableRows = document.querySelectorAll('#storeTable tbody tr');
-    
+
     tableRows.forEach(row => {
         storeData.push({
             name: row.dataset.name,
@@ -11,10 +23,11 @@ document.addEventListener('DOMContentLoaded', function() {
             city: row.dataset.city
         });
     });
-    
+
     // Populate mobile cards
     const cardsContainer = document.getElementById('storeCards');
-    
+    cardsContainer.innerHTML = '';
+
     storeData.forEach(store => {
         const card = document.createElement('div');
         card.className = 'store-card';
@@ -22,85 +35,172 @@ document.addEventListener('DOMContentLoaded', function() {
         card.dataset.code = store.code;
         card.dataset.state = store.state;
         card.dataset.city = store.city;
-        
+
         card.innerHTML = `
             <div class="store-card-name">${store.name}</div>
             <div class="store-card-code">Code: ${store.code}</div>
             <div class="store-card-location">${store.city}, ${store.state}</div>
             <div class="store-card-arrow"><i class="bi bi-chevron-right"></i></div>
         `;
-        
+
         cardsContainer.appendChild(card);
     });
-    
+
     // Add click event to table rows
     tableRows.forEach(row => {
-        row.addEventListener('click', function() {
-            navigateToStoreProducts(this.dataset);
+        row.addEventListener('click', function () {
+            navigateToStore(this.dataset);
         });
     });
-    
+
     // Add click event to mobile cards
     const storeCards = document.querySelectorAll('.store-card');
     storeCards.forEach(card => {
-        card.addEventListener('click', function() {
-            navigateToStoreProducts(this.dataset);
+        card.addEventListener('click', function () {
+            navigateToStore(this.dataset);
         });
     });
-    
-    // Function to navigate to store products page
-    function navigateToStoreProducts(storeData) {
-        const params = new URLSearchParams({
-            name: storeData.name,
-            code: storeData.code,
-            state: storeData.state,
-            city: storeData.city
-        });
-        
-        window.location.href = `store-products.html?${params.toString()}`;
+}
+
+// Navigate to store products page
+function navigateToStore(storeData) {
+    const params = new URLSearchParams({
+        name: storeData.name,
+        code: storeData.code,
+        state: storeData.state,
+        city: storeData.city
+    });
+
+    window.location.href = `store-products.html?${params.toString()}`;
+}
+
+// Check screen size and adjust view
+function checkScreenSize() {
+    const isMobile = window.innerWidth <= 768;
+    const desktopTable = document.querySelector('.desktop-table');
+    const mobileCards = document.querySelector('.mobile-cards');
+
+    if (isMobile) {
+        desktopTable.style.display = 'none';
+        mobileCards.style.display = 'block';
+    } else {
+        desktopTable.style.display = 'block';
+        mobileCards.style.display = 'none';
     }
-});
+}
 
 
 
-document.addEventListener('DOMContentLoaded', function() {
-    // Get store details from URL parameters
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Initialize the product modal
+let productModal;
+
+document.addEventListener('DOMContentLoaded', function () {
+    // Initialize the Bootstrap modal
+    productModal = new bootstrap.Modal(document.getElementById('productModal'));
+
+    // Get store information from URL parameters
     const urlParams = new URLSearchParams(window.location.search);
-    const storeName = urlParams.get('name');
-    const storeCode = urlParams.get('code');
-    const state = urlParams.get('state');
-    const city = urlParams.get('city');
+    if (urlParams.has('name') && urlParams.has('code')) {
+        const store = {
+            name: urlParams.get('name'),
+            code: urlParams.get('code'),
+            state: urlParams.get('state'),
+            city: urlParams.get('city')
+        };
 
-    // Display store information
-    document.getElementById('storeInfo').innerHTML = `
-        <h2>${storeName}</h2>
-        <p>Code: ${storeCode} | Location: ${city}, ${state}</p>
-    `;
+        // Display store information
+        displayStoreInfo(store);
+    }
 
-    // Fetch and display products
-    fetchAndDisplayProducts(storeCode);
+    // Initialize the product list
+    initializeProductList();
 
-    // Create a modal instance
-    const productModal = new bootstrap.Modal(document.getElementById('productModal'));
+    // Check screen size and adjust view
+    checkScreenSize();
 
-    // Add click event listener to the product table
-    document.getElementById('productTable').addEventListener('click', function(e) {
-        const target = e.target.closest('tr');
-        if (target && target.dataset.sku) {
-            showProductModal(target.dataset, productModal);
-        }
-    });
-    
-    // Add click event listener to the product cards
-    document.getElementById('productCards').addEventListener('click', function(e) {
-        const target = e.target.closest('.product-card');
-        if (target && target.dataset.sku) {
-            showProductModal(target.dataset, productModal);
-        }
-    });
+    // Listen for window resize to adjust view
+    window.addEventListener('resize', checkScreenSize);
 });
 
-function showProductModal(data, modal) {
+// Display store information
+function displayStoreInfo(store) {
+    document.getElementById('storeInfo').innerHTML = `
+                <h2>${store.name}</h2>
+                <p>Code: ${store.code} | Location: ${store.city}, ${store.state}</p>
+            `;
+}
+
+// Initialize the product list
+function initializeProductList() {
+    // Get all product data from the table
+    const productData = [];
+    const tableRows = document.querySelectorAll('#productTable tbody tr');
+
+    tableRows.forEach(row => {
+        productData.push({
+            sku: row.dataset.sku,
+            name: row.dataset.name,
+            price: row.dataset.price,
+            inventory: row.dataset.inventory
+        });
+    });
+
+    // Populate mobile cards
+    const cardsContainer = document.getElementById('productCards');
+    cardsContainer.innerHTML = '';
+
+    productData.forEach(product => {
+        const card = document.createElement('div');
+        card.className = 'product-card';
+        card.dataset.sku = product.sku;
+        card.dataset.name = product.name;
+        card.dataset.price = product.price;
+        card.dataset.inventory = product.inventory;
+
+        card.innerHTML = `
+                    <div class="product-card-title">${product.name}</div>
+                    <div class="product-card-sku">SKU: ${product.sku}</div>
+                    <div class="product-card-price">${product.price}</div>
+                    <div class="product-card-inventory">In Stock: ${product.inventory}</div>
+                `;
+
+        cardsContainer.appendChild(card);
+    });
+
+    // Add click event to table rows
+    tableRows.forEach(row => {
+        row.addEventListener('click', function () {
+            showProductModal(this.dataset);
+        });
+    });
+
+    // Add click event to mobile cards
+    const productCards = document.querySelectorAll('.product-card');
+    productCards.forEach(card => {
+        card.addEventListener('click', function () {
+            showProductModal(this.dataset);
+        });
+    });
+}
+
+// Show the product modal
+function showProductModal(data) {
     // Update modal content
     document.getElementById('modalSkuCode').textContent = data.sku;
     document.getElementById('modalProductName').textContent = data.name;
@@ -108,59 +208,20 @@ function showProductModal(data, modal) {
     document.getElementById('modalInventory').textContent = data.inventory;
 
     // Show the modal
-    modal.show();
+    productModal.show();
 }
 
-function fetchAndDisplayProducts(storeCode) {
-    // This is a mock function. In a real application, you would fetch this data from a server.
-    const mockProducts = [
-        { sku: 'SKU2985473', name: '22 Karat Gold Earrings-Gross Weight-10.947g', price: '₹96,623', inventory: 5 },
-        { sku: 'SKU2985474', name: '18 Karat Gold Necklace-Gross Weight-15.320g', price: '₹78,450', inventory: 3 },
-        { sku: 'SKU2985475', name: '24 Karat Gold Bangle-Gross Weight-20.105g', price: '₹1,25,000', inventory: 2 },
-        { sku: 'SKU2985476', name: '22 Karat Gold Ring-Gross Weight-5.678g', price: '₹45,890', inventory: 8 },
-        { sku: 'SKU2985477', name: '18 Karat Gold Bracelet-Gross Weight-12.345g', price: '₹62,780', inventory: 4 }
-    ];
+// Check screen size and adjust view
+function checkScreenSize() {
+    const isMobile = window.innerWidth <= 768;
+    const desktopTable = document.querySelector('.desktop-table');
+    const mobileCards = document.querySelector('.mobile-cards');
 
-    // Populate the table for desktop view
-    const tableBody = document.querySelector('#productTable tbody');
-    tableBody.innerHTML = '';
-
-    // Populate the cards container for mobile view
-    const cardsContainer = document.getElementById('productCards');
-    cardsContainer.innerHTML = '';
-
-    mockProducts.forEach(product => {
-        // Create table row for desktop
-        const row = document.createElement('tr');
-        row.dataset.sku = product.sku;
-        row.dataset.name = product.name;
-        row.dataset.price = product.price;
-        row.dataset.inventory = product.inventory;
-        
-        row.innerHTML = `
-            <td>${product.sku}</td>
-            <td>${product.name}</td>
-            <td>${product.price}</td>
-            <td>${product.inventory}</td>
-        `;
-        
-        tableBody.appendChild(row);
-        
-        // Create card for mobile
-        const card = document.createElement('div');
-        card.className = 'product-card';
-        card.dataset.sku = product.sku;
-        card.dataset.name = product.name;
-        card.dataset.price = product.price;
-        card.dataset.inventory = product.inventory;
-        
-        card.innerHTML = `
-            <div class="product-card-title">${product.name}</div>
-            <div class="product-card-sku">SKU: ${product.sku}</div>
-            <div class="product-card-price">${product.price}</div>
-            <div class="product-card-inventory">In Stock: ${product.inventory}</div>
-        `;
-        
-        cardsContainer.appendChild(card);
-    });
+    if (isMobile) {
+        desktopTable.style.display = 'none';
+        mobileCards.style.display = 'block';
+    } else {
+        desktopTable.style.display = 'block';
+        mobileCards.style.display = 'none';
+    }
 }

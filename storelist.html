@@ -8,7 +8,146 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
-    <link rel="stylesheet" href="./css/storelist.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #10a37f;
+            --secondary-color: #f7f7f8;
+            --text-color: #343541;
+            --border-color: #e5e5e5;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text-color);
+            background-color: #ffffff;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .header h1 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--text-color);
+        }
+        
+        .table {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .table thead {
+            background-color: var(--secondary-color);
+        }
+        
+        .table th {
+            font-weight: 600;
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem;
+        }
+        
+        .table td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-color);
+            vertical-align: middle;
+        }
+        
+        .table tbody tr {
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        
+        .table tbody tr:hover {
+            background-color: rgba(16, 163, 127, 0.05);
+        }
+        
+        .arrow-icon {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+        }
+        
+        /* Store Cards for Mobile */
+        .store-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            padding: 1rem;
+            margin-bottom: 1rem;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+        }
+        
+        .store-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .store-card-name {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-color);
+            padding-right: 20px; /* Space for the arrow */
+        }
+        
+        .store-card-code {
+            color: #6e6e80;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .store-card-location {
+            color: #6e6e80;
+            font-size: 0.9rem;
+        }
+        
+        .store-card-arrow {
+            position: absolute;
+            top: 50%;
+            right: 1rem;
+            transform: translateY(-50%);
+            color: var(--primary-color);
+            font-size: 1.2rem;
+        }
+        
+        /* Hide table on mobile, show cards */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.5rem;
+            }
+            
+            .desktop-table {
+                display: none;
+            }
+            
+            .mobile-cards {
+                display: block;
+            }
+        }
+        
+        /* Hide cards on desktop, show table */
+        @media (min-width: 769px) {
+            .desktop-table {
+                display: block;
+            }
+            
+            .mobile-cards {
+                display: none;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -31,84 +170,84 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr data-name="Durgapur_City Centre" data-code="TP84" data-state="West Bengal" data-city="Durgapur">
+                        <tr onclick="window.location.href='store-products.html'">
                             <td>Durgapur_City Centre</td>
                             <td>TP84</td>
                             <td>West Bengal</td>
                             <td>Durgapur</td>
                             <td class="text-end"><i class="bi bi-chevron-right arrow-icon"></i></td>
                         </tr>
-                        <tr data-name="Bangalore_Galleria M" data-code="T1PK" data-state="Karnataka" data-city="Bangalore">
+                        <tr onclick="window.location.href='store-products.html'">
                             <td>Bangalore_Galleria M</td>
                             <td>T1PK</td>
                             <td>Karnataka</td>
                             <td>Bangalore</td>
                             <td class="text-end"><i class="bi bi-chevron-right arrow-icon"></i></td>
                         </tr>
-                        <tr data-name="Mumbai_Vashi Sec 1" data-code="TLC0" data-state="Maharashtra" data-city="Mumbai">
+                        <tr onclick="window.location.href='store-products.html'">
                             <td>Mumbai_Vashi Sec 1</td>
                             <td>TLC0</td>
                             <td>Maharashtra</td>
                             <td>Mumbai</td>
                             <td class="text-end"><i class="bi bi-chevron-right arrow-icon"></i></td>
                         </tr>
-                        <tr data-name="Rourkela_Kachery Rd" data-code="TN72" data-state="Orissa" data-city="Rourkela">
+                        <tr onclick="window.location.href='store-products.html'">
                             <td>Rourkela_Kachery Rd</td>
                             <td>TN72</td>
                             <td>Orissa</td>
                             <td>Rourkela</td>
                             <td class="text-end"><i class="bi bi-chevron-right arrow-icon"></i></td>
                         </tr>
-                        <tr data-name="Mall- Bangalore_Falcon" data-code="T64X" data-state="Karnataka" data-city="Bangalore">
+                        <tr onclick="window.location.href='store-products.html'">
                             <td>Mall- Bangalore_Falcon</td>
                             <td>T64X</td>
                             <td>Karnataka</td>
                             <td>Bangalore</td>
                             <td class="text-end"><i class="bi bi-chevron-right arrow-icon"></i></td>
                         </tr>
-                        <tr data-name="N Delhi_Preet Vihar" data-code="8411" data-state="Delhi" data-city="Delhi">
+                        <tr onclick="window.location.href='store-products.html'">
                             <td>N Delhi_Preet Vihar</td>
                             <td>8411</td>
                             <td>Delhi</td>
                             <td>Delhi</td>
                             <td class="text-end"><i class="bi bi-chevron-right arrow-icon"></i></td>
                         </tr>
-                        <tr data-name="Varanasi_Rathyatra" data-code="8455" data-state="Uttar Pradesh" data-city="Varanasi">
+                        <tr onclick="window.location.href='store-products.html'">
                             <td>Varanasi_Rathyatra</td>
                             <td>8455</td>
                             <td>Uttar Pradesh</td>
                             <td>Varanasi</td>
                             <td class="text-end"><i class="bi bi-chevron-right arrow-icon"></i></td>
                         </tr>
-                        <tr data-name="Darbhanga_GM Road" data-code="TCQ5" data-state="Bihar" data-city="Darbhanga">
+                        <tr onclick="window.location.href='store-products.html'">
                             <td>Darbhanga_GM Road</td>
                             <td>TCQ5</td>
                             <td>Bihar</td>
                             <td>Darbhanga</td>
                             <td class="text-end"><i class="bi bi-chevron-right arrow-icon"></i></td>
                         </tr>
-                        <tr data-name="Mysore_Devraj Urs Rd" data-code="TCQ4" data-state="Karnataka" data-city="Mysore">
+                        <tr onclick="window.location.href='store-products.html'">
                             <td>Mysore_Devraj Urs Rd</td>
                             <td>TCQ4</td>
                             <td>Karnataka</td>
                             <td>Mysore</td>
                             <td class="text-end"><i class="bi bi-chevron-right arrow-icon"></i></td>
                         </tr>
-                        <tr data-name="Moradabad_Kanth Road" data-code="TCL3" data-state="Uttar Pradesh" data-city="Moradabad">
+                        <tr onclick="window.location.href='store-products.html'">
                             <td>Moradabad_Kanth Road</td>
                             <td>TCL3</td>
                             <td>Uttar Pradesh</td>
                             <td>Moradabad</td>
                             <td class="text-end"><i class="bi bi-chevron-right arrow-icon"></i></td>
                         </tr>
-                        <tr data-name="Mall- Jalandhar_PUDA" data-code="T538" data-state="Punjab" data-city="Jalandhar">
+                        <tr onclick="window.location.href='store-products.html'">
                             <td>Mall- Jalandhar_PUDA</td>
                             <td>T538</td>
                             <td>Punjab</td>
                             <td>Jalandhar</td>
                             <td class="text-end"><i class="bi bi-chevron-right arrow-icon"></i></td>
                         </tr>
-                        <tr data-name="Ranchi_MG Road" data-code="TH44" data-state="Jharkhand" data-city="Ranchi">
+                        <tr onclick="window.location.href='store-products.html'">
                             <td>Ranchi_MG Road</td>
                             <td>TH44</td>
                             <td>Jharkhand</td>
@@ -121,15 +260,120 @@
         </div>
         
         <!-- Mobile Card View -->
-        <div class="mobile-cards" id="storeCards">
-            <!-- Store cards will be populated here -->
+        <div class="mobile-cards">
+            <div class="store-card" onclick="window.location.href='store-products.html'">
+                <div class="store-card-name">Durgapur_City Centre</div>
+                <div class="store-card-code">Code: TP84</div>
+                <div class="store-card-location">Durgapur, West Bengal</div>
+                <div class="store-card-arrow"><i class="bi bi-chevron-right"></i></div>
+            </div>
+            
+            <div class="store-card" onclick="window.location.href='store-products.html'">
+                <div class="store-card-name">Bangalore_Galleria M</div>
+                <div class="store-card-code">Code: T1PK</div>
+                <div class="store-card-location">Bangalore, Karnataka</div>
+                <div class="store-card-arrow"><i class="bi bi-chevron-right"></i></div>
+            </div>
+            
+            <div class="store-card" onclick="window.location.href='store-products.html'">
+                <div class="store-card-name">Mumbai_Vashi Sec 1</div>
+                <div class="store-card-code">Code: TLC0</div>
+                <div class="store-card-location">Mumbai, Maharashtra</div>
+                <div class="store-card-arrow"><i class="bi bi-chevron-right"></i></div>
+            </div>
+            
+            <div class="store-card" onclick="window.location.href='store-products.html'">
+                <div class="store-card-name">Rourkela_Kachery Rd</div>
+                <div class="store-card-code">Code: TN72</div>
+                <div class="store-card-location">Rourkela, Orissa</div>
+                <div class="store-card-arrow"><i class="bi bi-chevron-right"></i></div>
+            </div>
+            
+            <div class="store-card" onclick="window.location.href='store-products.html'">
+                <div class="store-card-name">Mall- Bangalore_Falcon</div>
+                <div class="store-card-code">Code: T64X</div>
+                <div class="store-card-location">Bangalore, Karnataka</div>
+                <div class="store-card-arrow"><i class="bi bi-chevron-right"></i></div>
+            </div>
+            
+            <div class="store-card" onclick="window.location.href='store-products.html'">
+                <div class="store-card-name">N Delhi_Preet Vihar</div>
+                <div class="store-card-code">Code: 8411</div>
+                <div class="store-card-location">Delhi, Delhi</div>
+                <div class="store-card-arrow"><i class="bi bi-chevron-right"></i></div>
+            </div>
+            
+            <div class="store-card" onclick="window.location.href='store-products.html'">
+                <div class="store-card-name">Varanasi_Rathyatra</div>
+                <div class="store-card-code">Code: 8455</div>
+                <div class="store-card-location">Varanasi, Uttar Pradesh</div>
+                <div class="store-card-arrow"><i class="bi bi-chevron-right"></i></div>
+            </div>
+            
+            <div class="store-card" onclick="window.location.href='store-products.html'">
+                <div class="store-card-name">Darbhanga_GM Road</div>
+                <div class="store-card-code">Code: TCQ5</div>
+                <div class="store-card-location">Darbhanga, Bihar</div>
+                <div class="store-card-arrow"><i class="bi bi-chevron-right"></i></div>
+            </div>
+            
+            <div class="store-card" onclick="window.location.href='store-products.html'">
+                <div class="store-card-name">Mysore_Devraj Urs Rd</div>
+                <div class="store-card-code">Code: TCQ4</div>
+                <div class="store-card-location">Mysore, Karnataka</div>
+                <div class="store-card-arrow"><i class="bi bi-chevron-right"></i></div>
+            </div>
+            
+            <div class="store-card" onclick="window.location.href='store-products.html'">
+                <div class="store-card-name">Moradabad_Kanth Road</div>
+                <div class="store-card-code">Code: TCL3</div>
+                <div class="store-card-location">Moradabad, Uttar Pradesh</div>
+                <div class="store-card-arrow"><i class="bi bi-chevron-right"></i></div>
+            </div>
+            
+            <div class="store-card" onclick="window.location.href='store-products.html'">
+                <div class="store-card-name">Mall- Jalandhar_PUDA</div>
+                <div class="store-card-code">Code: T538</div>
+                <div class="store-card-location">Jalandhar, Punjab</div>
+                <div class="store-card-arrow"><i class="bi bi-chevron-right"></i></div>
+            </div>
+            
+            <div class="store-card" onclick="window.location.href='store-products.html'">
+                <div class="store-card-name">Ranchi_MG Road</div>
+                <div class="store-card-code">Code: TH44</div>
+                <div class="store-card-location">Ranchi, Jharkhand</div>
+                <div class="store-card-arrow"><i class="bi bi-chevron-right"></i></div>
+            </div>
         </div>
     </div>
 
     <!-- Bootstrap JS Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="./js/storelist.js"></script>
     
-    <!-- Custom JavaScript -->
+    <!-- Custom JavaScript for Responsive Design -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check screen size and adjust view
+            checkScreenSize();
+            
+            // Listen for window resize to adjust view
+            window.addEventListener('resize', checkScreenSize);
+        });
+        
+        // Check screen size and adjust view
+        function checkScreenSize() {
+            const isMobile = window.innerWidth <= 768;
+            const desktopTable = document.querySelector('.desktop-table');
+            const mobileCards = document.querySelector('.mobile-cards');
+            
+            if (isMobile) {
+                desktopTable.style.display = 'none';
+                mobileCards.style.display = 'block';
+            } else {
+                desktopTable.style.display = 'block';
+                mobileCards.style.display = 'none';
+            }
+        }
+    </script>
 </body>
 </html>
