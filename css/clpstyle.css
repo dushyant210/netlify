@@ -656,3 +656,130 @@ input[type="range"]::-webkit-slider-thumb:hover {
 /* filters popup ends*/
 /* filters popup ends*/
 /* filters popup ends*/
+
+
+
+
+
+
+
+/* Cart page */
+/* Cart page */
+/* Cart page */
+
+.chat-container {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e5e5e6;
+    margin-bottom: 16px;
+}
+
+.chat-header {
+    padding: 16px;
+    border-bottom: 1px solid #e5e5e6;
+    font-weight: 600;
+}
+
+.chat-content {
+    padding: 16px;
+}
+
+.btn-primary {
+    background-color: #343541;
+    border-color: #343541;
+}
+
+.btn-primary:hover {
+    background-color: #2a2b35;
+    border-color: #2a2b35;
+}
+
+.btn-outline {
+    background-color: white;
+    border: 1px solid #e5e5e6;
+    color: #343541;
+}
+
+.quantity-btn {
+    background-color: white;
+    border: 1px solid #e5e5e6;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.quantity-input {
+    width: 50px;
+    text-align: center;
+    border: 1px solid #e5e5e6;
+    height: 30px;
+    background-color: white;
+}
+
+.product-img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 4px;
+    border: 1px solid #e5e5e6;
+}
+
+.text-muted {
+    color: #6e6e80 !important;
+}
+
+.otp-input {
+    letter-spacing: 8px;
+    font-size: 1.1rem;
+    padding-left: 12px;
+}
+
+.hidden {
+    display: none;
+}
+
+.address-card {
+    border: 1px solid #e5e5e6;
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.address-card:hover {
+    border-color: #343541;
+}
+
+.address-card.selected {
+    border-color: #343541;
+    background-color: #f7f7f8;
+}
+
+.address-type {
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.add-new-address {
+    border: 1px dashed #e5e5e6;
+    border-radius: 8px;
+    padding: 12px;
+    text-align: center;
+    cursor: pointer;
+    color: #6e6e80;
+    transition: all 0.2s;
+}
+
+.add-new-address:hover {
+    border-color: #343541;
+    color: #343541;
+}
+
+/* Cart page */
+/* Cart page */
+/* Cart page */
